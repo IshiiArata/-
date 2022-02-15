@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <meta charset="utf-8">
+       <title>打刻アプリ</title>
+       <script language="javascript">
+           function zikoku(){
+                var nowTime = new Date(); 
+                var year = nowTime.getFullYear();
+                var month = nowTime.getMonth() + 1;
+                var date = nowTime.getDate();
+                var week = nowTime.getDay();
+                var weeks = ["日", "月", "火", "水", "木", "金", "土"];
+                var youbi = weeks[week];
+                var nowHour = nowTime.getHours(); 
+                var nowMin  = nowTime.getMinutes(); 
+                var nowSec  = nowTime.getSeconds(); 
+                if(nowHour < 10)
+                    nowHour = "0"+nowHour;
+                if(nowMin < 10)
+                    nowMin = "0"+nowMin;
+                if(nowSec < 10)
+                    nowSec = "0"+nowSec;
+                var a = year + "年" + month + "月" + date + "日" + youbi + "曜日" +"　"+ nowHour + "：" + nowMin + "：" + nowSec ;
+                document.getElementById("nowtime").innerHTML = a;
+           }
+           setInterval("zikoku()",1000);
+           function kiroku1(){
+                alert("今日も1日頑張ってください！")
+                var nowTime = new Date(); 
+                var nowHour = nowTime.getHours(); 
+                var nowMin  = nowTime.getMinutes(); 
+                if(nowHour < 10)
+                    nowHour = "0"+nowHour;
+                if(nowMin < 10)
+                    nowMin = "0"+nowMin;
+                var b = nowHour + "：" + nowMin;
+                document.getElementById("kiroku1").innerHTML = b;
+           }
+           function kiroku2(){
+             alert("お疲れ様です！休憩してリフレッシュしましょう！")
+             var nowTime = new Date(); 
+             var nowHour = nowTime.getHours(); 
+             var nowMin  = nowTime.getMinutes(); 
+             if(nowHour < 10)
+                nowHour = "0"+nowHour;
+             if(nowMin < 10)
+                nowMin = "0"+nowMin;
+             var c = nowHour + "：" + nowMin;
+             document.getElementById("kiroku2").innerHTML = c;
+           }
+           function kiroku3(){
+             alert("午後も頑張ってください！")
+             var nowTime = new Date(); 
+             var nowHour = nowTime.getHours(); 
+             var nowMin  = nowTime.getMinutes(); 
+             if(nowHour < 10)
+                nowHour = "0"+nowHour;
+             if(nowMin < 10)
+                nowMin = "0"+nowMin;
+             var d = nowHour + "：" + nowMin;
+             document.getElementById("kiroku3").innerHTML = d;
+           }
+           function kiroku4(){
+             alert("1日お疲れ様でした！")
+             var nowTime = new Date(); 
+             var nowHour = nowTime.getHours(); 
+             var nowMin  = nowTime.getMinutes(); 
+             if(nowHour < 10)
+                nowHour = "0"+nowHour;
+             if(nowMin < 10)
+                nowMin = "0"+nowMin;
+             var e = nowHour + "：" + nowMin;
+             document.getElementById("kiroku4").innerHTML = e;
+           }
+           function henkou1(){
+             var f = prompt("時刻を入力してください","例　08:57")
+             document.getElementById("henkou1").innerHTML = f;
+           }
+           function henkou2(){
+             var g = prompt("時刻を入力してください","例　08:57")
+             document.getElementById("henkou2").innerHTML = g;
+           }
+           function henkou3(){
+             var h = prompt("時刻を入力してください","例　08:57")
+             document.getElementById("henkou3").innerHTML = h;
+           }
+           function henkou4(){
+             var i = prompt("時刻を入力してください","例　08:57")
+             document.getElementById("henkou4").innerHTML = i;
+           }
+       </script>
+    </head>
+    <body style="margin:50px;">
+        <h1>打刻アプリ</h1>
+        <p>・今日の日付と時刻</p>
+        <p id="nowtime" style="font-size: 20px;"></p>
+        <p>・管理表</p>
+        <table border="1" width="50%">
+            <tr><th width="20%">記録ボタン</th><th width="30%">記録時刻</th><th width="30%">変更時刻</th><th width="20%">時刻変更ボタン</th></tr>
+            <tr><th><button type="button" style="width:100px;height:45px" onClick="disabled = true;kiroku1()">出勤</button></th><th id="kiroku1"></th><th id="henkou1"></th><th><button type="button" style="width:100px;height:45px" onClick="henkou1()">時間変更</button></th></tr>
+            <tr><th><button type="button" style="width:100px;height:45px" onClick="disabled = true;kiroku2()">休憩開始</button></th><th id="kiroku2"></th><th id="henkou2"></th></th><th><button type="button" style="width:100px;height:45px" onClick="henkou2()">時間変更</button></th></tr>
+            <tr><th><button type="button" style="width:100px;height:45px" onClick="disabled = true;kiroku3()">休憩終了</button></th><th id="kiroku3"></th><th id="henkou3"></th><th><button type="button" style="width:100px;height:45px" onClick="henkou3()">時間変更</button></th></tr>
+            <tr><th><button type="button" style="width:100px;height:45px" onClick="disabled = true;kiroku4()">退勤</button></th><th id="kiroku4"></th><th id="henkou4"></th><th><button type="button" style="width:100px;height:45px" onClick="henkou4()">時間変更</button></th></tr>
+        </table> 
+        <p>・報告事例<br>
+        <textarea name="name" cols="55" rows="6"></textarea>
+	    
+        
+
+    </body>
+</html>
